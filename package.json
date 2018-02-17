@@ -1,0 +1,25 @@
+{
+  "name": "movie_bot",
+  "version": "1.0.0",
+  "description": "Chatbot that uses Recast AI and Movie API to provide useful movie information.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnovaitonDev/movie_bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnovaitonDev/movie_bot/issues"
+  },
+  "homepage": "https://github.com/InnovaitonDev/movie_bot#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
