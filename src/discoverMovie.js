@@ -2,6 +2,7 @@ const axios = require('axios');
 const config = require('./config.js');
 
 function discoverMovie(kind, genreId, language) {
+  console.log("Calling discoverMovie Function");
   return axios.get(`https://api.themoviedb.org/3/discover/${kind}`, {
     params: {
       api_key: config.MOVIEDB_TOKEN,
@@ -12,6 +13,7 @@ function discoverMovie(kind, genreId, language) {
     },
   }).then(results => {
     if (results.length === 0) {
+      console.log("No RESULT");
       return [{
         type: 'quickReplies',
         content: {
@@ -21,7 +23,10 @@ function discoverMovie(kind, genreId, language) {
       }];
     }
 
-    const cards = results.slice(0, 10).map(movie => ({
+
+    console.log(results.total_results);
+
+    const cards = results.data.results.slice(0, 10).map(movie => ({
       title: movie.title || movie.name,
       subtitle: movie.overview,
       imageUrl: `https://image.tmdb.org/t/p/w640${movie.poster_path}`,

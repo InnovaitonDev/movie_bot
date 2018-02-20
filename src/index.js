@@ -53,10 +53,6 @@ app.post('/errors', (req, res) => {
    res.sendStatus(200);
 });
 
-app.post('/tests', function(req, res){
-	res.send('POST request ot the homeagggge');
-});
-
 app.post('/discover-movies', (req, res) => {
     console.log('[POST] /discover-movies');
     const memory = req.body.conversation.memory;
@@ -68,7 +64,8 @@ app.post('/discover-movies', (req, res) => {
     const kind = movie ? 'movie' : 'tv';
 
     const genre = memory.genre;
-    const genreId = constants.getGenreId(genre.value);
+    const genreId = getGenreId(genre.value);
+    console.log(genreId);
 
     const language = memory.language;
     const nationality = memory.nationality;
