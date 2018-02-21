@@ -23,8 +23,8 @@ function discoverMovie(kind, genreId, language) {
       }];
     }
 
-
-    console.log(results.total_results);
+    console.log(typeof(results.data.results))
+    console.log(results.data.results);
 
     const cards = results.data.results.slice(0, 10).map(movie => ({
       title: movie.title || movie.name,
@@ -39,6 +39,8 @@ function discoverMovie(kind, genreId, language) {
       ],
     }));
 
+    console.log(cards);
+
     return [
       {
         type: 'text',
@@ -48,5 +50,7 @@ function discoverMovie(kind, genreId, language) {
     ];
   });
 }
+
+discoverMovie('movie', '35', 'en');
 
 module.exports = discoverMovie;
